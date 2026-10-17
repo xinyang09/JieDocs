@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark" data-page-node-id="mRFvVBGLsCQeCUEoWbHRaD">
+<head data-page-node-id="LEpxwDor2s1LdVTKOWYmgk">
+  <meta charset="UTF-8" data-page-node-id="jeI9t8RxPAOKEh2Czm8El4" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="oJEMBfO0EsADxSotM6F2QE" />
+  <title>FNS — 为 Obsidian 而生的实时笔记同步服务</title>
+  <meta name="description" content="Fast Note Sync Service：高性能、低延迟的笔记同步与远程管理平台。Golang + WebSocket 驱动，原生支持 MCP 与 REST API，自托管、开源。" data-page-node-id="tk287EaAe8HOAr73PrpnAZ" />
+  <link rel="stylesheet" href="css/styles.css" data-page-node-id="PJKFaCngxS5T1YOdRlgvji" />
+</head>
+<body data-page-node-id="5mx5ubZtPEto7XkxWJBVFE">
+  <a class="skip-link" href="#hero" data-page-node-id="57F5Z8kpQgOEXPpSIJ5hoa">跳到主内容</a>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" data-page-node-id="fvBJzoqegBGqg8L9h42Cwm">
+    <div class="nav-inner" data-page-node-id="Lh0pCWamUHHw1VxUa7tDRd">
+      <a class="brand" href="#hero" aria-label="FNS 首页" data-page-node-id="hcCCdDIfxos5t4DFr2RlOb">
+        <span class="brand-mark" aria-hidden="true" data-page-node-id="lOAOfVIc2If1ljDCAbxEau">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" data-page-node-id="eDgSXLuxm2RSz6InzWQMoZ">
+            <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor" data-page-node-id="mqeoPPxmnXR2ccjvtjEfTO" />
+          </svg>
+        </span>
+        <span class="brand-name" data-page-node-id="hMrkmgZuwOErJBkisvGTSI">FNS</span>
+        <span class="brand-sub" data-page-node-id="cQpBCl8sGoLqUiEuvdGP1M">fast-note-sync</span>
+      </a>
+
+      <nav class="nav-links" aria-label="主导航" data-page-node-id="dhLM0yrMpi88rBdXZoMgTh">
+        <a href="#features" data-page-node-id="5m5oKU7olmk1FCKMLw9Szk">特性</a>
+        <a href="#sync" data-page-node-id="3dP7OqoUJHxxAwUptmtaEI">实时同步</a>
+        <a href="#api" data-page-node-id="qmvX5QLKaGfHkVBbMM8nYy">API</a>
+        <a href="#deploy" data-page-node-id="xJgEz4tNhFetWcMYXeACPo">部署</a>
+        <a href="#faq" data-page-node-id="SKAFOl7C2HOADY3szWTpBk">FAQ</a>
+      </nav>
+
+      <div class="nav-actions" data-page-node-id="7jtWGkCgwacACgCAmw6fhz">
+        <a class="nav-gh" href="https://github.com/haierkeys/fast-note-sync-service" target="_blank" rel="noopener" data-page-node-id="GxEkEM6ngorwQqZeCJ2WjL">
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" data-page-node-id="F3olFaKrcB6V3Er7R4Qjgf">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z" data-page-node-id="siAQcPJ8JwPp3RyPLhQ6c4"/>
+          </svg>
+          GitHub
+        </a>
+        <a class="nav-cta" href="#deploy" data-page-node-id="HssbOsWaRtB9C1UkS549cJ">开始部署</a>
+      </div>
+
+      <button class="nav-burger" aria-label="打开菜单" aria-expanded="false" data-page-node-id="WhyafsCxvqOWh3miNRt9nY">
+        <span data-page-node-id="NbHcAdKMABcB3n8DGOygeA"></span><span data-page-node-id="uBUNIlUjNuiSqlVQTruCs2"></span><span data-page-node-id="KgvntdXiBgkJnDCdL2QurI"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="hero" data-page-node-id="hEmTeMoOPIgD6xXuFt8djL">
+    <div class="hero-bg" aria-hidden="true" data-page-node-id="pQUi5nOIQGr6gdEVwx7DyX">
+      <div class="grid-lines" data-page-node-id="sa408qB4QpI95MGFZgwz16"></div>
+      <div class="glow glow-a" data-page-node-id="5nimD0fFMXNaZ7eK320SYF"></div>
+      <div class="glow glow-b" data-page-node-id="wda9RjzdfWzhctjYwbyFaF"></div>
+    </div>
+
+    <div class="hero-inner" data-page-node-id="UxtMBrgK4cD7IEwfhpRKgK">
+      <div class="hero-copy" data-page-node-id="b38A0rlb1ClFCFa800m0ri">
+        <p class="kicker" data-page-node-id="IvqI94Gx2HpkqRXrLabgcs"><span class="dot" data-page-node-id="XMyvJ6NE3k0iIPoU6Wstw0"></span>自托管 · 开源 · Go + WebSocket</p>
+        <h1 class="hero-title" data-page-node-id="l8zTxtLRHBuUH5Zlc2d8Hh">让每一篇笔记，<br  data-page-node-id="DWZyIcCSm1Z9HDClkE4lO1"/><span class="accent-word" data-page-node-id="qudduLm15qJpYajmHjTz0n">实时</span>抵达所有设备。</h1>
+        <p class="hero-sub" data-page-node-id="gsG0wWXg1QJcrico2MKVEp">
+          FNS 是高性能、低延迟的笔记同步与远程管理平台。原生支持
+          <code data-page-node-id="npE0jExEjLKTic2wI30USo">MCP</code> 与 <code data-page-node-id="lyhEeaWTIcNu6L3bM5VCry">REST API</code>——一次部署，让 AI 与所有设备
+          实时读写你的第二大脑。
+        </p>
+
+        <div class="hero-cta" data-page-node-id="ghzBayASoxPzfUB1JK6ACU">
+          <a class="btn btn-primary" href="#deploy" data-page-node-id="3YagQYx6d8zBOS6FK0EAxM">
+            <span data-page-node-id="ivoJRGa4Zn93Uj0DaNxr0M">一键部署</span>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" data-page-node-id="53NntWrFvIA6VyFJAyshXi"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="o1z8stBYW8Trs8syJK6dCx"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#api" data-page-node-id="aFxEZzbV7fgZ2qPkLRLxk7">浏览 API 文档</a>
+          <a class="btn btn-copy" id="copy-install" href="#" title="复制部署命令" data-page-node-id="B2wAtnQeAzcAr6DE4AbAd2">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" data-page-node-id="8biqnmdFxVWmtaoLsEo811"><rect x="6" y="6" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="1.4" data-page-node-id="rbBAH4dbcmpDyvZ2V2NxOm"/><path d="M4 10H3.5A1.5 1.5 0 0 1 2 8.5v-5A1.5 1.5 0 0 1 3.5 2h5A1.5 1.5 0 0 1 10 3.5V4" stroke="currentColor" stroke-width="1.4" data-page-node-id="kbtdyOkZ3dWEo7nBSLq4mF"/></svg>
+            <code class="install-cmd" data-page-node-id="GKH305re9JqqEmeJnsJ11o">bash &lt;(curl -fsSL https://raw.githubusercontent.com/haierkeys/fast-note-sync-service/master/scripts/quest_install.sh)</code>
+          </a>
+        </div>
+
+        <ul class="hero-proof" data-page-node-id="YlDZiFgibkJ3TCUAgDYz8B">
+          <li data-page-node-id="cfkW3nYKAdFrP4wINtEpvl"><span class="proof-icon" data-page-node-id="dVEGuZAMlQKpHiiV2fHH1b">●</span>毫秒级增量推送</li>
+          <li data-page-node-id="d60HC26UE4sflyYpotTYzn"><span class="proof-icon" data-page-node-id="GwtagnZWDrIabee3PfUtsx">●</span>AI 原生读写（MCP）</li>
+          <li data-page-node-id="I8scHSIgoPd5uORxoF7Ja6"><span class="proof-icon" data-page-node-id="61e1WxreAohGHSi6J37Xsg">●</span>SQLite / MySQL / PostgreSQL</li>
+        </ul>
+      </div>
+
+      <!-- 编辑器窗口 mockup -->
+      <div class="hero-editor" aria-hidden="true" data-page-node-id="46BTzcVppjhwcU4lCEtRnp">
+        <div class="window" data-page-node-id="EXaYGRHpL92Zcxeoo7tchT">
+          <div class="window-bar" data-page-node-id="a5X7PE9ZJAUtne2EDpybBr">
+            <span class="traffic" data-page-node-id="PpCD3AsElJWWUeKdqfLoV1"><i data-page-node-id="yLRKz7Q40H4cFmnurc0JWp"></i><i data-page-node-id="z4FL2Rs3bFYcu4mIM3PgFU"></i><i data-page-node-id="eY2Yv17QvbqOwteGFyxe72"></i></span>
+            <span class="win-tab win-tab-active" data-page-node-id="6o5NKysnjPxK34ctucOpzS">daily-notes.md</span>
+            <span class="win-tab" data-page-node-id="zLAh7vO7T64PSKdi2Hk8j5">config.yaml</span>
+            <span class="win-badge" data-page-node-id="DNA1ATRT2K2T8ElCNyDiUY">Markdown</span>
+          </div>
+          <div class="window-body" data-page-node-id="AFI6yoNDX3AaImXazuX6zf">
+            <aside class="file-tree" data-page-node-id="6AQInn9XCIXTC9Uv9fI6zt">
+              <p class="tree-root" data-page-node-id="eAj7ZUwsXhrswPASYMGLmv">vault /</p>
+              <ul data-page-node-id="sAgKczvSAhG1eq2UPPuzkd">
+                <li class="dir" data-page-node-id="R1PoDNhdwNPBZlIxvad7E4">📁 projects<span class="chev" data-page-node-id="ExLnKVTZH9eXs076oQ3yrP">▾</span>
+                  <ul data-page-node-id="y7rTIHBS05BqwOEFbfuw9C">
+                    <li class="file is-open" data-page-node-id="iBxzzXdOGMWnHafJpyNfzv">daily-notes.md</li>
+                    <li class="file" data-page-node-id="SjViiUaCGgWgZW1K31mdPT">readme.md</li>
+                    <li class="file" data-page-node-id="LDvwqJzYQjv0NC2LOEOSwS">todo.md</li>
+                  </ul>
+                </li>
+                <li class="dir" data-page-node-id="SIJHgpviTENpTue4CPSHEr">📁 archive<span class="chev" data-page-node-id="6fRZGZpHvciLm5KY7CQUAs">▸</span></li>
+                <li class="dir" data-page-node-id="Dw5hRBjH9VWkiw8o9rjVbC">📁 attachments<span class="chev" data-page-node-id="wjBaLVhXCntQ2s85af7Hjq">▸</span></li>
+              </ul>
+              <div class="tree-status" data-page-node-id="OYKSoKyaHSWYEiiqhmnvUH">
+                <span class="sync-dot" data-page-node-id="JCutK8lGXAd4BD7jC8KQTp"></span>已同步 · 3 台设备
+              </div>
+            </aside>
+            <div class="code-pane" data-page-node-id="egiyj2bHDWYoosrv47UfX8">
+              <div class="code-line-nums" aria-hidden="true" data-page-node-id="m4JDuP7YFE67JFMwqh4GgD"><span data-page-node-id="8aIdBe5m3OGtKIg4fN44pT">1</span><span data-page-node-id="zr2aLE5bGC5IWaklQGyQEj">2</span><span data-page-node-id="QUP0SoCKfCiAzoqpszKUyt">3</span><span data-page-node-id="6VJV92w8r78tSQjRDdIx7F">4</span><span data-page-node-id="HNt2HuBuIiYefbQMIITe6R">5</span><span data-page-node-id="FmAaU4cxaL5F3lWRaMet78">6</span><span data-page-node-id="s4S4hvtKOVcwpmFJdBRrOG">7</span><span data-page-node-id="7F2TO2EtSvytIv1FCPzO8A">8</span></div>
+              <pre class="code-view" data-page-node-id="FXxQBzKJGWIg4oHKibQxGO"><code id="typing-target" data-page-node-id="YsPOuchua6rWeEpxr0Pheg"></code><span class="cursor" aria-hidden="true" data-page-node-id="vgvi0C7gRPBMOjcWsY7GND"></span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRUST ============ -->
+  <section class="trust" aria-label="支持平台" data-page-node-id="lneoM5aW8XmLSSI0v8m6Q0">
+    <p class="trust-label" data-page-node-id="lrANEeofC5JH6A7k0oYY5K">原生接入你正在用的工具</p>
+    <div class="trust-row" data-page-node-id="dBSlmWf8S16VQltqNsbYSW">
+      <span class="trust-item" data-page-node-id="p22mgLklWFs96D8mzpQ85T">Obsidian</span>
+      <span class="trust-item" data-page-node-id="bA62qQobz13hszXnKGMGsu">Cherry Studio</span>
+      <span class="trust-item" data-page-node-id="GbDH5DvIHCQqcA6DDiNNX4">Cursor</span>
+      <span class="trust-item" data-page-node-id="EwyujFZxetU7ZQXAs4MBTT">Claude Code</span>
+      <span class="trust-item" data-page-node-id="afytI2J9haAqeVs35c1YCR">Docker</span>
+      <span class="trust-item" data-page-node-id="uXS9MFROmEL7Wws9Q2bJ40">S3 / OSS / R2</span>
+      <span class="trust-item" data-page-node-id="PfC6xkNUx72gOa2BZqfT0s">WebDAV</span>
+    </div>
+  </section>
+
+  <!-- ============ FEATURES ============ -->
+  <section class="section features" id="features" data-page-node-id="d5sTD4fQGeVE4jEDZIOxsI">
+    <div class="section-head" data-page-node-id="NoxCFMnX4LHBUdY4F5AYQ8">
+      <p class="kicker" data-page-node-id="SE9p2EkZI3jDJCxEKIzlU2">WHY FNS</p>
+      <h2 data-page-node-id="iDaYDz27nHeFkPGdJwlNSB">不是又一个云笔记，<br  data-page-node-id="CR5IKNYwXHkS6YGoXWbUni"/>是长在你服务器上的同步层。</h2>
+      <p class="section-sub" data-page-node-id="t1p9xe4cpdcXgIH0B029E7">数据永远归你。同步这件事，交给毫秒级的 WebSocket。</p>
+    </div>
+
+    <div class="bento" data-page-node-id="XFfw1uq0FHu3IN0KZFLnvv">
+      <article class="bento-card bento-wide" data-page-node-id="pwIoFel4egSdpGDLQZsqxt">
+        <div class="card-tag" data-page-node-id="iNW93tNCirWjcDMR9zM8HG">实时同步</div>
+        <h3 data-page-node-id="msRSVNAkYUUeXtAj55dS87">毫秒级多设备分发</h3>
+        <p data-page-node-id="TfvtDpMHQUmGKxMR9sCIYu">笔记的增删改通过 WebSocket 实时广播到所有在线设备，改完即达，无需手动刷新。</p>
+        <div class="mini-stream" aria-hidden="true" data-page-node-id="1xLLAz4uwjEd8BMhyAExFA">
+          <div class="stream-node" data-page-node-id="CdfoAoB9gFnT4Pk0dLtFzm"><span class="n-dot" data-page-node-id="kfVmXqaq98AKJpSL1S7m1r"></span>Mac</div>
+          <div class="stream-line" data-page-node-id="Sq35veh1Izx89JwJ6lxNSx"><i data-page-node-id="A1xWorGx6uZk9qaABhWnya"></i></div>
+          <div class="stream-core" data-page-node-id="NA1JR0PC6BH3hDRBTrcBvt"><span class="core-dot" data-page-node-id="iCiiJQrumX2babUU9sZbiy"></span>FNS</div>
+          <div class="stream-line" data-page-node-id="8eq2y8jXV18sHYg3d6MH0Q"><i data-page-node-id="oJ4hJokMd7mkPmTAlcFpps"></i></div>
+          <div class="stream-node" data-page-node-id="9WwlAFeYT08KB7K3Ibs150"><span class="n-dot" data-page-node-id="rvevJidfaMMubzDGcY7DTo"></span>iPhone</div>
+        </div>
+      </article>
+
+      <article class="bento-card" data-page-node-id="d6W93rQm3oncFYzqHjjM6m">
+        <div class="card-tag" data-page-node-id="B34l7impxn1KNEml2frH1X">AI 原生</div>
+        <h3 data-page-node-id="ult3gMtHflHcro9DV20bIY">MCP 支持</h3>
+        <p data-page-node-id="tCBxIpb6ccukN6J9WeDTmj">把 FNS 挂成 MCP Server，让 AI 直接读写你的笔记与附件，改动实时回写所有设备。</p>
+      </article>
+
+      <article class="bento-card" data-page-node-id="x1PuajkwJB23poTNLlXPZ4">
+        <div class="card-tag" data-page-node-id="bbMHYPNFfgH1wxs10m9G76">接口</div>
+        <h3 data-page-node-id="sfjSQD3caav6PtajnbE3wV">REST API</h3>
+        <p data-page-node-id="nfjLZXwxy7gz6pM84U53GF">标准 REST 接口支撑程序化 CRUD，自动化脚本与 AI 助理都能顺手接。</p>
+      </article>
+
+      <article class="bento-card" data-page-node-id="tB4dihKRf5CosFNM1f4wak">
+        <div class="card-tag" data-page-node-id="PmvOzAsjR8iuVAzFWEtIJ8">附件</div>
+        <h3 data-page-node-id="7JiHxNHUgKCEsKyK04cfXn">附件与配置同步</h3>
+        <p data-page-node-id="urxMD8comtHWBUN3EuGfGU">图片等非笔记文件、<code data-page-node-id="eZeCrRHoH0EAOyrNDLQLpa">.obsidian</code> 配置、PDF 阅读进度，全部一并同步。</p>
+      </article>
+
+      <article class="bento-card" data-page-node-id="A7McQ96KNwPn4dHFoRPMTr">
+        <div class="card-tag" data-page-node-id="Sxj4umYvDQayXYm8UwMhhI">安全网</div>
+        <h3 data-page-node-id="LB8NUBnOgPaJOo7opY65zE">版本历史 + 回收站</h3>
+        <p data-page-node-id="7tr2l530iEkAGoJaMxZepm">误删可恢复，历史版本随手回滚，写错了也不怕。</p>
+      </article>
+
+      <article class="bento-card" data-page-node-id="Dr7UcvA5zIhcfEjgf8TSnr">
+        <div class="card-tag" data-page-node-id="VTqTeSsZMHojeXjnvLeHNu">备份</div>
+        <h3 data-page-node-id="H23Xs9CjCQ3BCGwR2V37EA">多云镜像 + Git 自动化</h3>
+        <p data-page-node-id="79nmVJGtHJbrhJN2AeEwgx">定时增量 ZIP 备份、单向镜像到 S3/OSS/WebDAV，变更自动推送远程 Git 仓库。</p>
+      </article>
+
+      <article class="bento-card" data-page-node-id="dbr4gAugwHSHU5fxJvHMWi">
+        <div class="card-tag" data-page-node-id="rvCaIC7huZiHYhCCCj8oya">分享</div>
+        <h3 data-page-node-id="H27Ra3jRcFlBtx24LNK4WV">一键分享笔记</h3>
+        <p data-page-node-id="wOe06FJdouLPjtWuWxM6d1">生成短链分享，支持密码保护与访问统计，附件自动解析。</p>
+      </article>
+
+      <article class="bento-card" data-page-node-id="SaxvZohUC3HQHqwRdfQUO7">
+        <div class="card-tag" data-page-node-id="GEs48TCn5CTTA3Fl4NfTZO">自托管</div>
+        <h3 data-page-node-id="ZZuDJ1YLobLEXfwMQP10dz">数据主权</h3>
+        <p data-page-node-id="FyvnmxMuTSinM0GIdKQedq">开源、可自托管，支持 SQLite 起步、MySQL/PostgreSQL 扩展，从个人到团队。</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ SYNC DEMO ============ -->
+  <section class="section sync" id="sync" data-page-node-id="HieRJr2hQkyvfDVgWG3HyO">
+    <div class="section-head" data-page-node-id="cA5exfr0fKW09t58ouTFz8">
+      <p class="kicker" data-page-node-id="Qla25TbMdf1ta75VymIdT3">REALTIME SYNC</p>
+      <h2 data-page-node-id="N8rKcrG3IZwhrTjJYwx3dX">这边敲，那边同步。</h2>
+      <p class="section-sub" data-page-node-id="8fiSMp4czKeFHZkI0Rhfr7">左边是你，右边是另一台设备。改动实时镜像，<span class="accent-word" data-page-node-id="MGt1zHTQcA6FYyTf5wwF4s">没有保存按钮</span>。</p>
+    </div>
+
+    <div class="sync-stage" data-page-node-id="x7lt71aZj0E3zJOreUI30B">
+      <div class="sync-pane" data-page-node-id="anc2mIV2wkz3qdFzP0D0Q1">
+        <div class="window-bar" data-page-node-id="YJJDHlEUZcY4FfjrmaSFxs"><span class="traffic" data-page-node-id="nc9M0VLedU40n7InKNldXN"><i data-page-node-id="Vc8eLGRxXqrshy0AqibrVP"></i><i data-page-node-id="czcVRxdyxbA13pp1p3en6d"></i><i data-page-node-id="7B3X6HLZcF0DXGavYgR2FZ"></i></span><span class="win-tab win-tab-active" data-page-node-id="UPr3XxOFblvN2qoX3avHt1">本地 · editor.md</span></div>
+        <div class="sync-input" contenteditable="true" id="sync-input" spellcheck="false" data-page-node-id="BsqJR0Et0VMFBjm08GozBH"># 今天的想法
+
+FNS 让同步这件事变得透明——</div>
+      </div>
+
+      <div class="sync-arrow" aria-hidden="true" data-page-node-id="LBrLqAuy4q4nM9LBkpB6CV">
+        <span class="arrow-line" data-page-node-id="05MbWrRwujn3fjArRcqNVv"></span>
+        <svg width="18" height="18" viewBox="0 0 16 16" fill="none" data-page-node-id="WSoh1DogExznxk7YVqzzzO"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="8Z8ZXi5WitNPVjU4zXccSG"/></svg>
+      </div>
+
+      <div class="sync-pane sync-pane-mirror" data-page-node-id="ENEstMe8gbcCcutBklnsVr">
+        <div class="window-bar" data-page-node-id="oadhAW5xZFflLBDlQTfmFu"><span class="traffic" data-page-node-id="zfmiarkZeiflJVOUsMqx0H"><i data-page-node-id="Ko6CmgVZsJp21nL2yMfvnp"></i><i data-page-node-id="mcalxUAcMX9vZ5DE2pwDLK"></i><i data-page-node-id="5wR9nVuOPf2fYfkEmFSLdA"></i></span><span class="win-tab win-tab-active" data-page-node-id="IBIoH0GQlcKLRaD2zIUB1r">远端 · iPhone</span><span class="live-badge" data-page-node-id="K0BhiWxfZ2iN5laReTPzJz"><span class="sync-dot" data-page-node-id="7gJLKcviaW1YHmz9syp1g2"></span>LIVE</span></div>
+        <div class="sync-output" id="sync-output" data-page-node-id="9WnjGzv3vuDzkxl0hR7FCr"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DEPLOY ============ -->
+  <section class="section deploy" id="deploy" data-page-node-id="kts7jbBnsdgQ6gB9o3401H">
+    <div class="deploy-grid" data-page-node-id="gkoBeXDOvs2G4Hw9YwzRp5">
+      <div class="deploy-copy" data-page-node-id="h5DJFE8tVAJbql3mAxq90f">
+        <p class="kicker" data-page-node-id="OOE6KhhogZL3TKlxQwIIvg">GET STARTED</p>
+        <h2 data-page-node-id="IOLcjTxsSWyTRgFBS6BR35">一条命令，<br  data-page-node-id="zAKAsbchuRQyKqcSOS2uEC"/>部署到你自己的服务器。</h2>
+        <p class="section-sub" data-page-node-id="qbnvMkAFKl9PdiYpoILEMC">自动检测环境、完成安装与服务注册，开箱即用。</p>
+        <ul class="deploy-list" data-page-node-id="bodY4m7JbEuRxbUAickYkk">
+          <li data-page-node-id="MZtKy7rn1XPXtfEaBejFhi"><span class="check" data-page-node-id="r6r58HoAYAPbuoxcpjiChM">✓</span>Docker / 一键脚本 / 手动二进制，三种方式任选</li>
+          <li data-page-node-id="Sz1MLclvFqEgvhXUJCVisa"><span class="check" data-page-node-id="iZnLNCy3SF0gQVx2izlXMX">✓</span>自动配置 systemd 或 launchd 开机自启</li>
+          <li data-page-node-id="txR8zVLprBBF33AIKdvtE1"><span class="check" data-page-node-id="knpG6E9vetjOYBgUy2UCrD">✓</span>全局命令 <code data-page-node-id="sAVc6NWnjOoWXlbmAFj5r7">fns</code>，交互式菜单管理</li>
+        </ul>
+        <p class="deploy-note" data-page-node-id="mirror-note">国内用户可用 cnb.cool 镜像：<code data-page-node-id="mirror-cmd">bash &lt;(curl -fsSL https://cnb.cool/haierkeys/fast-note-sync-service/-/git/raw/master/scripts/quest_install.sh) --cnb</code></p>
+        <a class="btn btn-primary" href="https://github.com/haierkeys/fast-note-sync-service" target="_blank" rel="noopener" data-page-node-id="49nyROEBGBqCwxr2GNqfeC">
+          查看部署文档
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" data-page-node-id="1eIU6acoR0Hj2uYLnZ0sY8"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="A952GdvDZb72Vx5CCWPPGA"/></svg>
+        </a>
+      </div>
+
+      <div class="terminal" aria-hidden="true" data-page-node-id="Q57R7I264KD9aWiAQUBXCd">
+        <div class="window-bar" data-page-node-id="guEv5y3CFGvicT4kCmJ6uL">
+          <span class="traffic" data-page-node-id="5L4mLwCh5sj4loX0dNJrm4"><i data-page-node-id="TURkIwbQcZPGLqdioUtHRH"></i><i data-page-node-id="qj0ze5Y6VbUJ9LFh89ITw6"></i><i data-page-node-id="aQc4zUfMaKLeMMGtDLDhdB"></i></span>
+          <span class="win-tab" data-page-node-id="XTxBHnkxu5w6xoHvOTfqHK">zsh — fast-note-sync</span>
+        </div>
+        <div class="term-body" data-page-node-id="1teU9bhNAUdyO9cwVIcbGW">
+          <pre class="term-lines" id="term-target" data-page-node-id="zbIT8WOroNXmsItFeKWZJw"></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ API CODE ============ -->
+  <section class="section api" id="api" data-page-node-id="CiHnNLcds2gztszRSeFBDW">
+    <div class="section-head" data-page-node-id="SPwGWb7ZMekhiJl6oAVJQa">
+      <p class="kicker" data-page-node-id="XE8fc6SX2dMRPoUjU30xO4">DEVELOPER FIRST</p>
+      <h2 data-page-node-id="e5lPAUTI0uES0gIkPhjV3y">写给开发者的接口。</h2>
+      <p class="section-sub" data-page-node-id="vEXTEVNUsMtv9hT0jh15Ky">MCP 与 REST 双通道，一个 token 即可接上你的自动化。</p>
+    </div>
+
+    <div class="code-browser" data-page-node-id="uFjaTBiiNdU0DRC4s8JWiu">
+      <div class="code-tabs" role="tablist" aria-label="代码示例" data-page-node-id="5X1CfoIGRlrxoo3zF5Iso4">
+        <button class="code-tab is-active" data-tab="mcp" role="tab" aria-selected="true" data-page-node-id="RcU5b1qLLxbsh6CPSEZjVw">MCP 配置</button>
+        <button class="code-tab" data-tab="rest" role="tab" aria-selected="false" data-page-node-id="awfCLGuGOGTBNbLBpETga6">REST API</button>
+        <button class="code-tab" data-tab="ws" role="tab" aria-selected="false" data-page-node-id="iMvgc57blVulprFFAtjFCP">WebSocket</button>
+        <span class="code-lang" data-page-node-id="3LFIu9Xsz4JmOZjnrZ9LGe">JSON / YAML</span>
+      </div>
+      <div class="code-body" data-page-node-id="1Q9bUmgT2O6dzpG6HTlJnN">
+        <pre class="code-snippet" id="code-mcp" data-code="mcp" data-page-node-id="3rVsnhDFs9P7J5l8sgGval"><code data-page-node-id="qpHtxDDAwHNl36votoUhCz">{&quot;mcpServers&quot;: {&quot;fns&quot;: {&quot;url&quot;: &quot;http://host:9000/api/mcp&quot;,&quot;type&quot;: &quot;http&quot;,&quot;headers&quot;: {&quot;Authorization&quot;: &quot;Bearer &lt;token&gt;&quot;}}}}</code></pre>
+        <pre class="code-snippet" id="code-rest" data-code="rest" hidden data-page-node-id="8wpONB8z2kehocVNxkorX0"><code data-page-node-id="uJOWJ5U5FsmsXSmUMzQP8N">curl -X POST http://host:9000/api/note \
+  -H &quot;Authorization: Bearer &lt;token&gt;&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{&quot;title&quot;:&quot;hello&quot;,&quot;content&quot;:&quot;# 你好，世界&quot;}'</code></pre>
+        <pre class="code-snippet" id="code-ws" data-code="ws" hidden data-page-node-id="AQOHkjQeR117VC7a6rcLmU"><code data-page-node-id="f5LqDw3v1BMlZoKDbzG25Y">const ws = new WebSocket(&quot;ws://host:9000/api/user/sync?token=&lt;token&gt;&quot;);
+ws.onmessage = (e) =&gt; render(JSON.parse(e.data));</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW ============ -->
+  <section class="section how" data-page-node-id="QoOHm7bCxSWhLXcR1gNKy0">
+    <div class="section-head" data-page-node-id="gKZyiStPmSFF2qionb5e33">
+      <p class="kicker" data-page-node-id="f2RFQLhZCTAmSTw1prDHsh">HOW IT WORKS</p>
+      <h2 data-page-node-id="O1t6yWZSTmonjAlzmqIyPx">三步，接入你的 Obsidian。</h2>
+    </div>
+    <ol class="steps" data-page-node-id="470TxXzQknIlRJWbXw8xH3">
+      <li class="step" data-page-node-id="jxOkWj5n7qh2BVePps0gd9">
+        <span class="step-num" data-page-node-id="1EpCNdyjMNIoj3SB9wonEg">01</span>
+        <h3 data-page-node-id="qps6g7myi4CN9LuiZaDfGe">部署服务</h3>
+        <p data-page-node-id="3KlumNXAOHzSZWiDzRA3J2">用一键脚本或 Docker 在你自己的服务器上跑起来。</p>
+      </li>
+      <li class="step" data-page-node-id="dGsoyH58VgG2wTDIiUY2G3">
+        <span class="step-num" data-page-node-id="Gom1Xxk7kBDaxBvGWemiWQ">02</span>
+        <h3 data-page-node-id="MohCYChmc4sqqDNZptwuUJ">复制 API 配置</h3>
+        <p data-page-node-id="KIq4ju2cZod6sLFMWvRTHy">登录管理面板，一键复制生成的连接配置。</p>
+      </li>
+      <li class="step" data-page-node-id="mIyZZJ4N5NO7ytKZUAnevl">
+        <span class="step-num" data-page-node-id="Lec72OPDdmXrZl3vhPmm40">03</span>
+        <h3 data-page-node-id="1j5VKEBA9tuIYpHreQSmHV">粘贴到插件</h3>
+        <p data-page-node-id="UQuvyQMlYwtFv4rnAGKUXe">打开 Obsidian 插件设置，粘贴配置，即刻开始同步。</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section faq" id="faq" data-page-node-id="ZVw2gcStVrdwfOWZrkP9ZF">
+    <div class="section-head" data-page-node-id="NpU3EqbYiI8Sc0OXM0Iwtu">
+      <p class="kicker" data-page-node-id="8eaBQJ1oWIiDaZ1Dz4Y40i">FAQ</p>
+      <h2 data-page-node-id="nvjd4449zyq6R0DyN3Yn27">你可能想问的。</h2>
+    </div>
+    <div class="faq-list" data-page-node-id="C7wonUbF4eBUw94c0k59Rr">
+      <details class="faq-item" open data-page-node-id="96Rlwm3gh0a1aZfdxwHk0c">
+        <summary data-page-node-id="HJQYfPSNL9sjZkSXsa3QS6">和 iCloud / 云笔记有什么区别？</summary>
+        <p data-page-node-id="0Qcrsj9n5JKTVfOMMSphmf">FNS 是你自己部署的同步层：数据留在你的服务器，走 WebSocket 毫秒级推送，还额外提供 MCP / REST API 让 AI 和脚本直接读写。开源、可控、可审计。</p>
+      </details>
+      <details class="faq-item" data-page-node-id="uxuCQWiQv4MjlAw7QsNNav">
+        <summary data-page-node-id="zoK7FYMy5JCEWRvrklxdwL">我需要什么数据库？</summary>
+        <p data-page-node-id="sxXfGmxFlv9nHDZS5Mhaok">默认 SQLite 零配置起步即可；数据量上来后可无缝切换到 MySQL 或 PostgreSQL，满足团队级部署。</p>
+      </details>
+      <details class="faq-item" data-page-node-id="dIQKzaSZWeXzkSIysE1fFC">
+        <summary data-page-node-id="a1B1nB4s53gVOPEw9nsuNp">离线的时候改笔记会丢吗？</summary>
+        <p data-page-node-id="AagqY5PSmAqf2d9HDMRz1D">不会。支持离线编辑自动合并，重新联网后离线改动与删除会自动解决（需在客户端插件开启对应策略）。</p>
+      </details>
+      <details class="faq-item" data-page-node-id="vO13QdoLEEi7PRbedv6nHf">
+        <summary data-page-node-id="zbp0KY6wy6YDleNOJnsuPr">自托管安全吗？</summary>
+        <p data-page-node-id="0mhSo8UzZSBcbfaYxHlUPC">开源可审计，支持 OIDC 登录与 token 鉴权；服务只在你自己的机器上，数据不外流。社区也提供 Nginx 反向代理示例。</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="section final-cta" data-page-node-id="AHzBfJntJ9F3EjS9gr496n">
+    <div class="cta-panel" data-page-node-id="Atg5Vuzr6UkMggZVHxATm8">
+      <p class="kicker" data-page-node-id="sD60XJ5x7xAPRP4Cl8hp0T">READY WHEN YOU ARE</p>
+      <h2 data-page-node-id="4BUpAv5zS6a1qU9zA5jLRa">把你的第二大脑，<br  data-page-node-id="ADFJ6zzjzn4KbbYfUJlCVH"/>同步到每一处。</h2>
+      <div class="cta-actions" data-page-node-id="LmPt3zs0UE3rtOyJoA0xIW">
+        <a class="btn btn-primary" href="#deploy" data-page-node-id="2a0aDoKYRbdbfGiuBEfWLY">一键部署</a>
+        <a class="btn btn-ghost" href="https://github.com/haierkeys/fast-note-sync-service" target="_blank" rel="noopener" data-page-node-id="9VfJhyrr4vC0tcLGTtscCV">
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" data-page-node-id="1TAvddrxaGFmmfCrTOid2L"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z" data-page-node-id="V45IKI6ob9GAMmaJdqjpZX"/></svg>
+          在 GitHub 上查看
+        </a>
+      </div>
+      <p class="cta-note" data-page-node-id="I98mLCplF9xddY00qFjvLE">开源 · 自托管 · 无订阅费</p>
+    </div>
+  </section>
+
+  <footer class="footer" data-page-node-id="IMtmCfg6L3GA67trHlUpBa">
+    <div class="footer-inner" data-page-node-id="3r6uquV3BjkDirmTJfMA3l">
+      <p class="footer-brand" data-page-node-id="gaP6SwhiHxoDAiUudWTWwS">FNS <span data-page-node-id="GcRf2pD1XeFpTJZsRbe9Nm">fast-note-sync-service</span></p>
+      <p class="footer-meta" data-page-node-id="qe4P2MqJ51zYbeR5er40Kp">Built with Go + WebSocket + React · MIT License</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "id": "fns.transfer",
+  "name": "Transfer Publisher",
+  "displayName": "外部文档发布",
+  "version": "0.1.0",
+  "type": "platform-plugin",
+  "configMode": "workspace-panel",
+  "mode": "platform-enhancement",
+  "surface": "docs-viewer",
+  "slot": "platform-enhancements",
+  "apiBase": "/api/transfer",
+  "permissions": ["transfer_r", "transfer_w", "note_r"],
+  "providers": ["feishu", "notion"],
+  "description": "通过 sepao/transfer 安全地将 Markdown 笔记创建到飞书或 Notion。"
+}

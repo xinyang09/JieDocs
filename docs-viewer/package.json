@@ -1,0 +1,59 @@
+{
+  "name": "fns-docs-viewer",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "start": "node --experimental-strip-types server/index.ts"
+  },
+  "dependencies": {
+    "@univerjs-pro/exchange-node": "^1.0.2",
+    "@univerjs/data-validation": "^1.0.2",
+    "@univerjs/preset-docs-core": "^1.0.2",
+    "@univerjs/preset-docs-drawing": "^1.0.2",
+    "@univerjs/preset-docs-hyper-link": "^1.0.2",
+    "@univerjs/preset-docs-thread-comment": "^1.0.2",
+    "@univerjs/preset-sheets-core": "^1.0.2",
+    "@univerjs/preset-sheets-find-replace": "^1.0.2",
+    "@univerjs/preset-sheets-note": "^1.0.2",
+    "@univerjs/preset-sheets-thread-comment": "^1.0.2",
+    "@univerjs/presets": "^1.0.2",
+    "@univerjs/sheets-conditional-formatting": "^1.0.2",
+    "@univerjs/sheets-conditional-formatting-ui": "^1.0.2",
+    "@univerjs/sheets-data-validation": "^1.0.2",
+    "@univerjs/sheets-data-validation-ui": "^1.0.2",
+    "@univerjs/sheets-drawing-ui": "^1.0.2",
+    "@univerjs/sheets-filter": "^1.0.2",
+    "@univerjs/sheets-filter-ui": "^1.0.2",
+    "@univerjs/sheets-hyper-link": "^1.0.2",
+    "@univerjs/sheets-hyper-link-ui": "^1.0.2",
+    "@univerjs/sheets-sort": "^1.0.2",
+    "@univerjs/sheets-sort-ui": "^1.0.2",
+    "@univerjs/sheets-table": "^1.0.2",
+    "@univerjs/sheets-table-ui": "^1.0.2",
+    "@univerjs/slides": "^1.0.2",
+    "@univerjs/slides-ui": "^1.0.2",
+    "@vitejs/plugin-react": "latest",
+    "lucide-react": "latest",
+    "prismjs": "^1.30.0",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-markdown": "latest",
+    "remark-gfm": "latest",
+    "ssf": "^0.11.2",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "typescript": "latest",
+    "vite": "latest"
+  }
+}

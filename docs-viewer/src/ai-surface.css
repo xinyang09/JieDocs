@@ -1,0 +1,21 @@
+.ai-surface { display: flex; flex-direction: column; min-width: 0; height: 100%; background: var(--surface, #fff); color: var(--text, #1f2937); border-left: 1px solid var(--border, #e5e7eb); }
+.ai-surface-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 14px; border-bottom: 1px solid var(--border, #e5e7eb); }
+.ai-surface-header > div { display: flex; gap: 8px; align-items: baseline; }
+.ai-surface-context { color: var(--muted, #6b7280); font-size: 12px; }
+.ai-surface-log { flex: 1; min-height: 0; overflow: auto; padding: 14px; }
+.ai-surface-empty, .ai-surface-pending { color: var(--muted, #6b7280); font-size: 13px; }
+.ai-surface-answer { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.65; }
+.ai-surface-error { color: #b42318; background: #fff1f0; border-radius: 6px; padding: 8px; }
+.ai-surface-citations { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.ai-surface-citations span { padding: 3px 7px; border-radius: 999px; background: var(--subtle-surface, #f3f4f6); color: var(--muted, #6b7280); font-size: 11px; }
+.ai-surface-proposal { margin-top: 14px; padding: 12px; border: 1px solid #cfd8e3; border-radius: 8px; background: #fbfcfe; }
+.ai-surface-proposal p { margin: 6px 0 10px; font-size: 13px; }
+.ai-surface-proposal-actions, .ai-surface-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.ai-surface-proposal-actions button, .ai-surface-toolbar button { display: inline-flex; align-items: center; gap: 5px; border: 1px solid var(--border, #d1d5db); background: var(--surface, #fff); border-radius: 6px; padding: 6px 9px; cursor: pointer; }
+.ai-surface-proposal-actions button:first-child { background: #176b48; color: #fff; border-color: #176b48; }
+.ai-surface-composer { padding: 10px; border-top: 1px solid var(--border, #e5e7eb); }
+.ai-surface-composer textarea { width: 100%; box-sizing: border-box; resize: vertical; min-height: 68px; border: 1px solid var(--border, #d1d5db); border-radius: 8px; padding: 9px; font: inherit; }
+.ai-surface-toolbar { margin-top: 8px; color: var(--muted, #6b7280); font-size: 11px; }
+.ai-surface-toolbar > div { display: flex; gap: 6px; }
+.ai-surface button:disabled, .ai-surface textarea:disabled { cursor: not-allowed; opacity: .55; }
+@media (prefers-reduced-motion: reduce) { .ai-surface * { animation: none !important; transition: none !important; } }

@@ -1,0 +1,27 @@
+{
+  "name": "fns-docs-desktop",
+  "version": "0.1.0",
+  "private": true,
+  "description": "JieDocs desktop client: the docs-viewer Web client packaged for macOS.",
+  "main": "main.cjs",
+  "scripts": {
+    "prepare:web": "VITE_DESKTOP_BUILD=1 npm --prefix ../docs-viewer run build && rm -rf web && cp -R ../docs-viewer/dist web",
+    "start": "electron .",
+    "dev": "npm run prepare:web && electron .",
+    "build:mac": "npm run prepare:web && electron-builder --mac --arm64",
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "electron": "^39.0.0",
+    "electron-builder": "^26.0.0"
+  },
+  "build": {
+    "appId": "com.fastnotesync.docs",
+    "productName": "JieDocs",
+    "files": ["main.cjs", "preload.cjs", "local-api.cjs", "local-cli.cjs", "workspace.cjs", "agent-discovery.cjs", "web/**/*", "package.json"],
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": ["dmg", "zip"]
+    }
+  }
+}

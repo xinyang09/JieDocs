@@ -1,0 +1,1420 @@
+:root {
+  --stage: #dfe3e2;
+  --frame: #17191d;
+  --canvas: #f6f8f7;
+  --surface: #fbfcfc;
+  --surface-raised: #f3f6f5;
+  --surface-muted: #e9eeec;
+  --surface-hover: #e4eae7;
+  --chrome: #f2f5f3;
+  --chrome-raised: rgba(46, 58, 62, .055);
+  --chrome-muted: #596368;
+  --overlay: #f8faf9;
+  --ink: #101418;
+  --ink-soft: #424e52;
+  --muted: #596368;
+  --muted-light: #687579;
+  --shell-ink: var(--ink);
+  --shell-ink-soft: var(--ink-soft);
+  --border: rgba(46, 58, 62, .09);
+  --border-strong: rgba(46, 58, 62, .16);
+  --border-subtle: rgba(46, 58, 62, .055);
+  --shell-border: var(--border);
+  --shell-border-strong: var(--border-strong);
+  --accent: #236de9;
+  --accent-strong: #1d61d5;
+  --accent-ink: #1d61d5;
+  --accent-contrast: #fff;
+  --accent-soft: rgba(35, 109, 233, .09);
+  --accent-wash: rgba(35, 109, 233, .14);
+  --accent-gradient: var(--accent);
+  --success: #407c18;
+  --success-soft: rgba(130, 221, 45, .14);
+  --success-bright: #82dd2d;
+  --danger: #c43c34;
+  --danger-soft: rgba(224, 68, 59, .09);
+  --danger-bright: #ff5a50;
+  --warning: #99620e;
+  --warning-soft: rgba(181, 128, 37, .12);
+  --shadow-sm: 0 1px 2px rgba(46, 58, 62, .05), 0 5px 14px rgba(46, 58, 62, .04);
+  --shadow-md: 0 1px 3px rgba(46, 58, 62, .06), 0 12px 30px rgba(46, 58, 62, .065);
+  --shadow-lg: 0 2px 6px rgba(46, 58, 62, .07), 0 22px 50px rgba(46, 58, 62, .13);
+  --shadow: var(--shadow-lg);
+  --pearl-edge: inset 0 1px 0 rgba(255, 255, 255, .92);
+  --pearl-glass: linear-gradient(145deg, rgba(255, 255, 255, .94), rgba(246, 251, 249, .66));
+  --pearl-panel: linear-gradient(145deg, #fff, #f9fcfa);
+  --pearl-float: rgba(248, 250, 249, .96);
+  --pearl-rail: rgba(250, 251, 250, .94);
+  --pearl-scrim: rgba(16, 20, 24, .3);
+  --pearl-frame-shadow: 0 24px 70px rgba(17, 23, 27, .2), 0 3px 12px rgba(17, 23, 27, .12);
+  --code-bg: #f3f6f5;
+  --code-header: #eaf0ed;
+  --code-border: var(--border);
+  --code-ink: var(--ink);
+  --code-muted: var(--muted);
+  --code-comment: #65716c;
+  --code-punct: #424e52;
+  --code-tag: #b42d53;
+  --code-string: #317448;
+  --code-number: #99620e;
+  --code-keyword: #7851a9;
+  --code-func: var(--accent-ink);
+  font-family: "SF Pro Text", "PingFang SC", -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  background: var(--stage);
+}
+
+html[data-theme='dark'] {
+  --stage: #191d1c;
+  --frame: #080b0a;
+  --canvas: #171c1a;
+  --surface: #202623;
+  --surface-raised: #252d29;
+  --surface-muted: #2c3530;
+  --surface-hover: #333f37;
+  --chrome: #1d2420;
+  --chrome-raised: rgba(229, 239, 232, .06);
+  --chrome-muted: #a8b6ad;
+  --overlay: #28302b;
+  --ink: #edf2ef;
+  --ink-soft: #c4d0c8;
+  --muted: #a8b6ad;
+  --muted-light: #93a49a;
+  --shell-ink: var(--ink);
+  --shell-ink-soft: var(--ink-soft);
+  --border: rgba(217, 233, 223, .09);
+  --border-strong: rgba(217, 233, 223, .18);
+  --border-subtle: rgba(217, 233, 223, .055);
+  --shell-border: var(--border);
+  --shell-border-strong: var(--border-strong);
+  --accent: #79a7ff;
+  --accent-strong: #9bbbff;
+  --accent-ink: #a7c4ff;
+  --accent-contrast: #111e34;
+  --accent-soft: rgba(121, 167, 255, .12);
+  --accent-wash: rgba(121, 167, 255, .2);
+  --accent-gradient: var(--accent);
+  --success: #a0d87b;
+  --success-soft: rgba(130, 221, 45, .12);
+  --success-bright: #a0e858;
+  --danger: #ff968b;
+  --danger-soft: rgba(255, 150, 139, .12);
+  --danger-bright: #ff968b;
+  --warning: #e4c073;
+  --warning-soft: rgba(228, 192, 115, .12);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, .2), 0 5px 14px rgba(0, 0, 0, .1);
+  --shadow-md: 0 1px 3px rgba(0, 0, 0, .2), 0 12px 30px rgba(0, 0, 0, .2);
+  --shadow-lg: 0 2px 6px rgba(0, 0, 0, .25), 0 22px 50px rgba(0, 0, 0, .35);
+  --shadow: var(--shadow-lg);
+  --pearl-edge: inset 0 1px 0 rgba(229, 239, 232, .07);
+  --pearl-glass: linear-gradient(145deg, rgba(55, 66, 58, .95), rgba(41, 51, 44, .8));
+  --pearl-panel: linear-gradient(145deg, #252d28, #212824);
+  --pearl-float: rgba(39, 48, 42, .97);
+  --pearl-rail: rgba(29, 36, 31, .97);
+  --pearl-scrim: rgba(0, 0, 0, .5);
+  --pearl-frame-shadow: 0 24px 70px rgba(0, 0, 0, .3), 0 3px 12px rgba(0, 0, 0, .3);
+  --code-bg: #1c231f;
+  --code-header: #252e28;
+  --code-border: var(--border);
+  --code-ink: var(--ink);
+  --code-muted: var(--muted);
+  --code-comment: #a0afa5;
+  --code-punct: #c4d0c8;
+  --code-tag: #ed9ab0;
+  --code-string: #aad799;
+  --code-number: #e4c073;
+  --code-keyword: #c9b2eb;
+  --code-func: var(--accent-ink);
+}
+
+body {
+  background: var(--stage);
+}
+
+.app-shell {
+  padding: 8px;
+  background: var(--stage);
+}
+
+.platform-container {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  border: 9px solid var(--frame);
+  border-radius: 32px;
+  background: var(--canvas);
+  box-shadow: var(--pearl-frame-shadow);
+  isolation: isolate;
+}
+
+/* The desktop shell loads this same Web build locally. Keep the Flowix-like
+   three-column workspace, but remove the hosted page frame that reads as a
+   nested browser inside a native window. */
+html[data-shell='desktop'],
+html[data-shell='desktop'] body,
+html[data-shell='desktop'] #root {
+  height: 100%;
+  overflow: hidden;
+}
+
+html[data-shell='desktop'] body,
+html[data-shell='desktop'] .app-shell {
+  background: var(--canvas);
+}
+
+html[data-shell='desktop'] .app-shell {
+  padding: 0;
+}
+
+html[data-shell='desktop'] .platform-container {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+html[data-shell='desktop'] .platform-activity-bar {
+  padding-top: 28px;
+}
+
+html[data-shell='desktop'] .topbar,
+html[data-shell='desktop'] .activity-brand-row {
+  -webkit-app-region: drag;
+}
+
+html[data-shell='desktop'] .topbar :is(button, input, select, a, [role='button']),
+html[data-shell='desktop'] .activity-brand-row :is(button, input, select, a, [role='button']) {
+  -webkit-app-region: no-drag;
+}
+
+.platform-activity-bar {
+  width: 218px;
+  min-width: 218px;
+  padding: 0 12px 14px;
+  align-items: stretch;
+  background: var(--pearl-rail);
+  border-right: 1px solid var(--border-strong);
+  box-shadow: var(--pearl-edge);
+}
+
+.activity-bar-top,
+.activity-bar-bottom {
+  align-items: stretch;
+  gap: 5px;
+}
+
+.activity-bar-top {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 16px;
+}
+
+.activity-bar-bottom {
+  flex: none;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+
+.activity-brand-row {
+  display: flex;
+  align-items: center;
+  flex: none;
+  gap: 4px;
+  min-height: 64px;
+}
+
+.activity-brand {
+  width: auto;
+  height: 44px;
+  min-width: 0;
+  flex: 1;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 0 4px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--ink);
+  text-align: left;
+}
+
+.activity-brand:hover {
+  background: var(--chrome-raised);
+  transform: none;
+}
+
+.activity-brand-icon {
+  width: 34px;
+  height: 34px;
+  flex: none;
+  border-radius: 12px;
+  background: #171c1a;
+  color: #e1f7d5;
+  box-shadow: 0 2px 7px rgba(16, 20, 24, .16), inset 0 1px 0 rgba(255, 255, 255, .14);
+}
+
+.activity-brand-copy,
+.activity-account-copy {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.activity-brand-copy strong {
+  font-size: 15px;
+  font-weight: 720;
+  letter-spacing: -.03em;
+}
+
+.activity-brand-copy small,
+.activity-account-copy small {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.activity-collapse-button {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 34px;
+  flex: none;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.activity-collapse-button:hover {
+  background: var(--surface-hover);
+  color: var(--ink);
+}
+
+.activity-bar-divider {
+  display: none;
+}
+
+.activity-nav-group {
+  align-items: stretch;
+  gap: 4px;
+}
+
+.activity-nav-heading {
+  padding: 12px 11px 7px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.activity-nav-heading.is-tools {
+  margin-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.activity-nav-item {
+  width: 100%;
+  height: 38px;
+  min-height: 38px;
+  justify-content: flex-start;
+  flex: none;
+  gap: 11px;
+  padding: 0 11px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  color: var(--ink-soft);
+  text-align: left;
+  transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+
+.activity-nav-item > svg {
+  flex: none;
+  width: 17px;
+  height: 17px;
+  stroke-width: 1.8;
+}
+
+.activity-nav-item:hover {
+  background: var(--chrome-raised);
+  color: var(--ink);
+  transform: none;
+}
+
+.activity-nav-item.is-active {
+  border-color: var(--border);
+  background: var(--pearl-glass);
+  color: var(--accent-ink);
+  box-shadow: var(--shadow-sm), var(--pearl-edge);
+}
+
+.platform-activity-bar .activity-nav-tooltip {
+  position: static;
+  order: 1;
+  display: block;
+  min-width: 0;
+  flex: 1;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  box-shadow: none;
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition: none;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* These are inline labels, not the legacy floating tooltips. */
+.platform-activity-bar .activity-nav-item:hover .activity-nav-tooltip {
+  transform: none;
+}
+
+.activity-nav-badge,
+.activity-nav-badge.is-accent {
+  position: static;
+  order: 2;
+  min-width: 22px;
+  height: 20px;
+  margin-left: auto;
+  padding: 0 5px;
+  border: 1px solid var(--border);
+  background: var(--surface-muted);
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 18px;
+}
+
+.activity-nav-item.is-active .activity-nav-badge {
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+}
+
+.activity-user-wrapper {
+  width: 100%;
+}
+
+.activity-user-btn {
+  width: 100%;
+  height: 54px;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--pearl-glass);
+  box-shadow: var(--pearl-edge);
+}
+
+.activity-avatar-circle {
+  width: 30px;
+  height: 30px;
+  flex: none;
+  border-radius: 10px;
+  background: var(--ink);
+  color: var(--surface);
+  font-size: 12px;
+}
+
+.activity-account-copy {
+  flex: 1;
+  text-align: left;
+}
+
+.activity-account-copy strong {
+  overflow: hidden;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.activity-account-chevron {
+  flex: none;
+  color: var(--muted);
+}
+
+.activity-status-dot {
+  right: auto;
+  bottom: 8px;
+  left: 31px;
+  border-color: var(--surface);
+}
+
+.activity-status-dot.is-online {
+  background: var(--success-bright);
+}
+
+.activity-user-dropdown {
+  left: calc(100% + 20px) !important;
+  bottom: 0 !important;
+  border-radius: 16px !important;
+  background: var(--pearl-float) !important;
+  box-shadow: var(--shadow-lg), var(--pearl-edge);
+}
+
+.is-navigation-collapsed .platform-activity-bar {
+  width: 76px;
+  min-width: 76px;
+  padding-inline: 12px;
+}
+
+.is-navigation-collapsed .activity-brand-row {
+  flex-direction: column;
+  gap: 4px;
+  padding-block: 12px;
+}
+
+.is-navigation-collapsed .activity-brand {
+  flex: none;
+  justify-content: center;
+  width: 44px;
+}
+
+.is-navigation-collapsed .activity-nav-item {
+  width: 50px;
+  height: 42px;
+  justify-content: center;
+  padding: 0;
+}
+
+.is-navigation-collapsed :is(.activity-brand-copy, .activity-nav-heading, .activity-nav-tooltip, .activity-account-copy, .activity-account-chevron) {
+  display: none;
+}
+
+.is-navigation-collapsed .activity-nav-badge {
+  position: absolute;
+  top: 0;
+  right: -2px;
+  min-width: 16px;
+  height: 16px;
+  padding-inline: 3px;
+  font-size: 9px;
+  line-height: 14px;
+}
+
+.is-navigation-collapsed .activity-user-btn {
+  justify-content: center;
+  height: 44px;
+  padding: 5px;
+}
+
+.topbar {
+  height: 64px;
+  min-height: 64px;
+  padding-inline: 22px;
+  background: color-mix(in srgb, var(--canvas) 90%, transparent);
+  border-bottom: 1px solid var(--border);
+  box-shadow: none;
+}
+
+.breadcrumb-vault {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+}
+
+.topbar-command-button {
+  flex-basis: 260px;
+  height: 36px;
+  padding-inline: 13px 8px;
+  border-radius: 999px;
+  background: var(--pearl-glass);
+  box-shadow: var(--shadow-sm), var(--pearl-edge);
+  font-size: 12px;
+}
+
+.document-tab {
+  min-width: 112px;
+  border-radius: 10px;
+}
+
+.document-tab.is-active {
+  border-color: var(--border);
+  background: var(--pearl-glass);
+  box-shadow: var(--shadow-sm), var(--pearl-edge);
+}
+
+.workspace,
+.workspace.has-outline {
+  grid-template-columns: 268px minmax(0, 1fr);
+  background: var(--canvas);
+}
+
+.workspace.has-outline {
+  grid-template-columns: 268px minmax(0, 1fr) 216px;
+}
+
+.workspace.is-sidebar-collapsed {
+  grid-template-columns: 0 minmax(0, 1fr);
+}
+
+.workspace.has-outline.is-sidebar-collapsed {
+  grid-template-columns: 0 minmax(0, 1fr) 216px;
+}
+
+.workspace:is(.is-ai-chat-workspace, .is-twofa-workspace, .is-tasks-workspace) {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.sidebar,
+.outline-panel,
+.ai-chat-history {
+  background: color-mix(in srgb, var(--chrome) 65%, var(--canvas));
+}
+
+.sidebar-header {
+  min-height: 62px;
+  padding-inline: 14px;
+  background: transparent;
+}
+
+.sidebar-header:has(.sidebar-header-search) {
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-block: 14px;
+}
+
+.sidebar-header-search {
+  flex: 1 0 100%;
+  width: 100%;
+  margin: 0;
+}
+
+.sidebar-header:has(.sidebar-header-search) .sidebar-header-actions {
+  width: 100%;
+}
+
+.sidebar-header:has(.sidebar-header-search) .sidebar-upload-button {
+  margin-right: auto;
+}
+
+.sidebar-search-box,
+.sidebar-upload-button {
+  border-radius: 10px;
+  background: var(--pearl-glass);
+  box-shadow: var(--pearl-edge);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted);
+  opacity: 1;
+}
+
+.tree-row,
+.note-row {
+  min-height: 36px;
+  border-radius: 9px;
+}
+
+.tree-row.is-active,
+.note-row.is-active {
+  background: var(--pearl-glass);
+  color: var(--accent-ink);
+  box-shadow: var(--shadow-sm), var(--pearl-edge);
+}
+
+.reader-area {
+  background: var(--surface);
+}
+
+.reader-meta {
+  min-height: 62px;
+  height: 62px;
+  padding-left: 24px;
+  background: var(--surface);
+}
+
+.document-reader:not(.document-reader-spreadsheet):not(.document-reader-univer) {
+  width: min(100%, 900px);
+  padding: 44px clamp(24px, 4vw, 64px) 180px;
+}
+
+.reader-action,
+.icon-button,
+.document-tab-add {
+  border-radius: 9px;
+}
+
+.primary-button,
+.workspace-home-primary {
+  min-height: 36px;
+  border-radius: 12px;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  box-shadow: 0 1px 2px rgba(20, 66, 148, .18), 0 6px 16px rgba(35, 109, 233, .15);
+}
+
+.primary-button:hover:not(:disabled),
+.workspace-home-primary:hover:not(:disabled) {
+  background: var(--accent-strong);
+  transform: none;
+}
+
+.workspace-home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.app-shell .floating-ai-button {
+  border-color: var(--border-strong);
+  background: var(--accent);
+  color: var(--accent-contrast);
+  box-shadow: var(--shadow-md);
+}
+
+.app-shell .floating-ai-button:hover:not(:disabled) {
+  background: var(--accent-strong);
+  box-shadow: var(--shadow-lg);
+  filter: none;
+}
+
+.secondary-button,
+.sidebar-skill-card,
+.sidebar-platform-plugin-card,
+.workspace-home-panel,
+.workspace-home-metric {
+  border-color: var(--border);
+  background: var(--pearl-panel);
+  box-shadow: var(--shadow-sm), var(--pearl-edge);
+}
+
+.secondary-button,
+.danger-button {
+  border-radius: 12px;
+}
+
+.workspace-home {
+  width: min(1100px, calc(100% - 56px));
+  padding: 32px 0 48px;
+}
+
+.workspace-home-hero {
+  gap: 24px;
+  padding-bottom: 24px;
+  border-bottom: 0;
+}
+
+.workspace-home-kicker {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.workspace-home h1 {
+  margin: 10px 0 8px;
+  font-size: 28px;
+  font-weight: 720;
+  line-height: 1.2;
+  letter-spacing: -.035em;
+}
+
+.workspace-home-hero p {
+  font-size: 13px;
+}
+
+.workspace-home-metrics {
+  gap: 12px;
+  padding: 0 0 24px;
+}
+
+.workspace-home-metric {
+  position: relative;
+  flex-wrap: wrap;
+  gap: 16px 10px;
+  padding: 18px;
+  border-radius: 16px;
+}
+
+.workspace-home-metric > span:nth-child(2) {
+  gap: 7px;
+}
+
+.workspace-home-metric strong {
+  font-size: 28px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.03em;
+}
+
+.workspace-home-metric small {
+  font-size: 12px;
+}
+
+.workspace-home-metric > svg {
+  color: var(--muted);
+}
+
+.workspace-home-metric-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 11px;
+}
+
+.workspace-home-metric-icon.is-accent {
+  color: var(--warning);
+  background: var(--warning-soft);
+}
+
+.workspace-home-metric-icon.is-ai {
+  color: var(--success);
+  background: var(--success-soft);
+}
+
+.workspace-home-grid {
+  grid-template-columns: minmax(0, 1.15fr) minmax(260px, .85fr);
+  gap: 16px;
+}
+
+.workspace-home-panel {
+  padding: 22px;
+  border-radius: 20px;
+}
+
+.workspace-home-panel h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 0;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.workspace-home-panel h2 svg {
+  color: var(--muted);
+}
+
+.workspace-home-recent-item,
+.workspace-home-command-list button {
+  padding-block: 13px;
+  border-radius: 10px;
+}
+
+.workspace-home-command-list kbd {
+  background: var(--surface-raised);
+  color: var(--muted);
+}
+
+.dialog-backdrop,
+.modal-backdrop {
+  background: var(--pearl-scrim);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.connection-dialog,
+.settings-dialog,
+.share-dialog,
+.document-editor-dialog {
+  border: 1px solid var(--border-strong);
+  border-radius: 22px;
+  background: var(--pearl-panel);
+  box-shadow: var(--shadow-lg), var(--pearl-edge);
+}
+
+.context-menu,
+.sidebar-sort-options,
+.vault-picker-menu {
+  border-radius: 14px;
+  background: var(--pearl-float);
+  box-shadow: var(--shadow-lg), var(--pearl-edge);
+}
+
+.app-shell :is(.vault-picker select, .tasks-filters select, .connection-dialog select, .settings-field select, .spreadsheet-ribbon-select) {
+  background-color: var(--surface);
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 14px 14px;
+  color: var(--ink);
+}
+
+.login-brand-mark {
+  border-radius: 12px;
+  background: #171c1a;
+  color: #e1f7d5;
+}
+
+.login-dialog {
+  width: min(420px, calc(100vw - 32px));
+}
+
+.platform-main.is-task-main {
+  --canvas: inherit;
+  --surface: inherit;
+  --surface-raised: inherit;
+  --surface-muted: inherit;
+  --surface-hover: inherit;
+  --border: inherit;
+  --border-strong: inherit;
+  --border-subtle: inherit;
+  --shell-border: inherit;
+  --shell-border-strong: inherit;
+  --ink: inherit;
+  --ink-soft: inherit;
+  --muted: inherit;
+  --muted-light: inherit;
+  --shell-ink: inherit;
+  --shell-ink-soft: inherit;
+  --chrome: inherit;
+  --chrome-raised: inherit;
+  --chrome-muted: inherit;
+  --accent: inherit;
+  --accent-strong: inherit;
+  --accent-ink: inherit;
+  --accent-contrast: inherit;
+  --accent-soft: inherit;
+  --accent-wash: inherit;
+  --success: inherit;
+  --success-soft: inherit;
+  --warning: inherit;
+  --warning-soft: inherit;
+}
+
+.platform-container .platform-main.is-task-main :is(.task-card, .task-calendar-week, .task-calendar-day, .task-calendar-month, .task-calendar-sidebar, .task-gantt, .task-gantt-empty) {
+  background-color: var(--surface);
+  border-color: var(--border);
+  color: var(--ink);
+}
+
+.platform-container .platform-main.is-task-main :is(.task-gantt-track, .task-calendar-hour, .task-calendar-all-day) {
+  background-color: var(--surface-raised);
+  border-color: var(--border);
+}
+
+.platform-container .platform-main.is-task-main :is(.tasks-view, .task-calendar, .task-groups, .task-results) {
+  background-color: transparent;
+}
+
+.platform-container .platform-main.is-task-main :is(.tasks-panel-view, .tasks-header) {
+  background: var(--canvas);
+}
+
+.platform-container .platform-main.is-task-main .tasks-toolbar .tasks-status-filters {
+  background: var(--surface-raised);
+}
+
+.platform-container .platform-main.is-task-main .task-board.is-priority {
+  grid-template-columns: repeat(6, minmax(248px, 1fr));
+}
+
+.platform-container .platform-main.is-task-main :is(.task-gantt-shell, .task-gantt-row) {
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+.platform-container .platform-main.is-task-main :is(.task-gantt-table-head, .task-gantt-view-label) {
+  background: var(--surface-raised);
+  border-color: var(--border);
+  color: var(--muted);
+}
+
+.platform-container .platform-main.is-task-main :is(.task-gantt-heading-main strong, .task-gantt-name-heading span, .task-gantt-label .task-card-text) {
+  color: var(--ink);
+}
+
+.platform-container .platform-main.is-task-main :is(.task-gantt-heading-main > span, .task-gantt-name-heading small, .task-gantt-month-row span, .task-gantt-date-row span, .task-gantt-label .task-card-meta, .task-gantt-label .task-priority-picker) {
+  color: var(--muted);
+}
+
+.platform-container .platform-main.is-task-main :is(.task-gantt-name-heading, .task-gantt-label, .task-gantt-month-row span, .task-gantt-date-row span) {
+  border-color: var(--border);
+}
+
+.platform-container .platform-main.is-task-main .task-gantt-track {
+  background-color: var(--surface-raised);
+  background-image: repeating-linear-gradient(to right, transparent 0, transparent calc(100% / var(--gantt-columns) - 1px), var(--border) calc(100% / var(--gantt-columns) - 1px), var(--border) calc(100% / var(--gantt-columns)));
+  border-color: var(--border);
+}
+
+.platform-container .platform-main.is-task-main .task-gantt-label .task-card:hover {
+  background: var(--surface-hover);
+}
+
+.platform-container .platform-main.is-task-main .task-gantt-add {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+.platform-container .platform-main.is-task-main .tasks-panel-view .task-view-tabs {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.platform-container .platform-main.is-task-main .tasks-panel-view .task-view-tabs button:hover {
+  background: var(--surface-hover);
+  color: var(--ink);
+}
+
+.platform-container .platform-main.is-task-main .tasks-panel-view .task-view-tabs button.is-active {
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+  box-shadow: var(--pearl-edge);
+}
+
+.platform-container .platform-main.is-task-main .tasks-panel-view .task-view-tabs .task-add-button {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+.platform-container .platform-main.is-task-main .tasks-panel-view .task-view-tabs .task-add-button:hover:not(:disabled) {
+  background: var(--accent-strong);
+  color: var(--accent-contrast);
+}
+
+.platform-container .platform-main.is-task-main .tasks-panel-view.is-calendar-panel .task-week-calendar {
+  background: var(--surface-raised);
+  border-color: var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.platform-container .platform-main.is-task-main .tasks-panel-view.is-calendar-panel .task-calendar-empty {
+  background: var(--surface);
+  border-color: var(--border-strong);
+  color: var(--muted);
+}
+
+.platform-container .platform-main.is-task-main .tasks-panel-view.is-calendar-panel .task-calendar-empty :is(strong, .empty-tip-icon) {
+  color: var(--ink-soft);
+}
+
+.platform-container .platform-main.is-task-main .tasks-panel-view.is-calendar-panel :is(.task-week-main, .task-week-side-panel, .task-week-grid, .task-week-corner, .task-week-day-head, .task-week-slot, .task-month-day) {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--ink);
+}
+
+.platform-container .platform-main.is-task-main .tasks-panel-view.is-calendar-panel :is(.task-week-main, .task-week-side-panel) {
+  box-shadow: var(--shadow-sm);
+}
+
+.platform-container .platform-main.is-task-main .tasks-panel-view.is-calendar-panel :is(.task-week-all-day, .task-week-all-day-label, .task-week-time, .task-calendar-range-switch, .task-week-side-day-chip, .task-month-weekdays, .task-month-day.is-empty) {
+  background: var(--surface-raised);
+  border-color: var(--border);
+  color: var(--muted);
+}
+
+.platform-container .platform-main.is-task-main .tasks-panel-view.is-calendar-panel :is(.task-week-day-head.is-today, .task-week-day-head.is-selected, .task-week-all-day.is-today, .task-week-slot.is-today, .task-week-side-day-chip.is-selected, .task-month-day.is-today) {
+  background: var(--accent-soft);
+  border-color: var(--border);
+}
+
+.platform-container .platform-main.is-task-main .tasks-panel-view.is-calendar-panel :is(.task-calendar-title .icon-button, .task-calendar-today, .task-calendar-filter, .task-calendar-search, .task-week-side-day-nav, .task-calendar-range-switch button.is-active) {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--ink-soft);
+}
+
+.platform-container .platform-main.is-task-main .tasks-panel-view.is-calendar-panel .task-week-side-day-nav:hover {
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+}
+
+.platform-container .platform-main.is-task-main .tasks-panel-view.is-calendar-panel .task-calendar :is(.task-calendar-title strong, .task-card-text) {
+  color: var(--ink);
+}
+
+.platform-container .platform-main.is-task-main .tasks-panel-view.is-calendar-panel .task-calendar :is(.task-calendar-caption, .task-card-meta, .task-week-corner, .task-week-empty, .task-week-day-head > span, .task-week-day-head > small) {
+  color: var(--muted);
+}
+
+.platform-container .platform-main.is-task-main .tasks-panel-view.is-calendar-panel .task-calendar :is(.task-week-side-day-chip.is-selected, .task-week-side-day-chip.is-selected strong, .task-calendar-range-switch button.is-active, .task-week-side-group > header span) {
+  color: var(--accent-ink);
+}
+
+.platform-container .platform-main.is-task-main .tasks-panel-view.is-calendar-panel .task-calendar :is(.task-week-all-day .task-card, .task-week-side-group .task-card) {
+  background: var(--success-soft);
+  border-color: var(--border);
+  border-left-color: var(--success);
+  color: var(--success);
+  box-shadow: none;
+}
+
+.platform-container .platform-main.is-task-main .tasks-panel-view.is-calendar-panel .task-calendar :is(.task-week-all-day .task-card-priority-urgent, .task-week-side-group .task-card-priority-urgent) {
+  background: var(--danger-soft);
+  border-left-color: var(--danger);
+  color: var(--danger);
+}
+
+.platform-container .platform-main.is-task-main .tasks-panel-view.is-calendar-panel .task-calendar :is(.task-week-all-day .task-card-priority-high, .task-week-side-group .task-card-priority-high) {
+  background: var(--accent-soft);
+  border-left-color: var(--accent);
+  color: var(--accent-ink);
+}
+
+.platform-container .platform-main.is-task-main .tasks-panel-view.is-calendar-panel .task-calendar :is(.task-week-all-day .task-card-priority-medium, .task-week-side-group .task-card-priority-medium) {
+  background: var(--warning-soft);
+  border-left-color: var(--warning);
+  color: var(--warning);
+}
+
+@media (min-width: 821px) and (max-width: 1180px) {
+  .platform-activity-bar {
+    width: 68px;
+    min-width: 68px;
+    padding-inline: 10px;
+  }
+
+  .activity-brand-row {
+    justify-content: center;
+  }
+
+  .activity-brand {
+    width: 44px;
+    flex: none;
+    justify-content: center;
+  }
+
+  .platform-activity-bar :is(.activity-brand-copy, .activity-collapse-button, .activity-nav-heading, .activity-nav-tooltip, .activity-account-copy, .activity-account-chevron) {
+    display: none;
+  }
+
+  .activity-nav-item,
+  .is-navigation-collapsed .activity-nav-item {
+    width: 46px;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .activity-nav-badge {
+    position: absolute;
+    top: 0;
+    right: -2px;
+    min-width: 16px;
+    height: 16px;
+    line-height: 14px;
+  }
+
+  .activity-user-btn {
+    justify-content: center;
+    height: 44px;
+    padding: 4px;
+  }
+
+  .workspace.has-outline,
+  .workspace.has-outline.is-sidebar-collapsed {
+    grid-template-columns: 268px minmax(0, 1fr);
+  }
+
+  .workspace.has-outline.is-sidebar-collapsed {
+    grid-template-columns: 0 minmax(0, 1fr);
+  }
+
+  .workspace.has-outline .outline-panel {
+    display: none;
+  }
+
+  .workspace-home-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .workspace-home-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 820px) {
+  .app-shell {
+    padding: 0;
+  }
+
+  .platform-container {
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .platform-activity-bar,
+  .is-navigation-collapsed .platform-activity-bar {
+    width: 100%;
+    min-width: 100%;
+    height: calc(60px + env(safe-area-inset-bottom));
+    min-height: calc(60px + env(safe-area-inset-bottom));
+    padding: 0 8px env(safe-area-inset-bottom);
+    align-items: center;
+    border-right: 0;
+    border-top: 1px solid var(--border-strong);
+    background: var(--pearl-rail);
+    box-shadow: var(--pearl-edge);
+  }
+
+  .activity-bar-top,
+  .activity-bar-bottom {
+    flex: none;
+    align-items: center;
+    overflow: visible;
+    padding: 0;
+    border: 0;
+  }
+
+  .activity-brand-row,
+  .is-navigation-collapsed .activity-brand-row {
+    display: none;
+  }
+
+  .platform-activity-bar :is(.activity-brand-copy, .activity-nav-heading, .activity-nav-tooltip, .activity-account-copy, .activity-account-chevron) {
+    display: none;
+  }
+
+  .activity-nav-item,
+  .is-navigation-collapsed .activity-nav-item {
+    width: 44px;
+    min-width: 44px;
+    height: 44px;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .activity-nav-badge,
+  .activity-nav-badge.is-accent {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 3px;
+    font-size: 9px;
+    line-height: 14px;
+  }
+
+  .activity-user-wrapper {
+    width: 44px;
+  }
+
+  .activity-user-btn {
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    padding: 4px;
+  }
+
+  .activity-user-dropdown {
+    position: fixed !important;
+    left: 12px !important;
+    bottom: calc(72px + env(safe-area-inset-bottom)) !important;
+    max-width: calc(100vw - 24px);
+  }
+
+  .topbar {
+    height: 56px;
+    min-height: 56px;
+    gap: 8px;
+    padding-inline: 12px;
+  }
+
+  .topbar-command-button {
+    flex: none;
+    width: 40px;
+    min-width: 40px;
+    height: 36px;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .topbar-command-button kbd {
+    display: none;
+  }
+
+  .workspace,
+  .workspace.has-outline,
+  .workspace.is-sidebar-collapsed,
+  .workspace.has-outline.is-sidebar-collapsed {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sidebar {
+    width: min(86vw, 320px);
+    background: var(--surface);
+  }
+
+  .workspace.is-tasks-workspace .sidebar:not(.is-collapsed) {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+  }
+
+  .workspace.is-tasks-workspace .sidebar-scrim {
+    display: none;
+  }
+
+  .platform-container .platform-main.is-task-main .tasks-header-main {
+    flex: 1;
+  }
+
+  .platform-container .platform-main.is-task-main .tasks-panel-view {
+    padding-inline: 16px;
+  }
+
+  .platform-container .platform-main.is-task-main .tasks-panel-view .task-view-tabs {
+    flex-wrap: wrap;
+    overflow: visible;
+  }
+
+  .platform-container .platform-main.is-task-main .task-view-tabs button {
+    flex: none;
+  }
+
+  .platform-container .platform-main.is-task-main .tasks-panel-view .task-view-tabs .task-add-button {
+    flex-basis: 100%;
+    margin-left: 0;
+    justify-content: center;
+  }
+
+  .platform-container .platform-main.is-task-main .tasks-panel-view.is-calendar-panel .task-calendar-title strong {
+    min-width: 0;
+    flex: 1;
+    font-size: 13px;
+  }
+
+  .app-shell .floating-ai-button {
+    right: 16px;
+    bottom: calc(76px + env(safe-area-inset-bottom));
+  }
+
+  .workspace-home {
+    width: calc(100% - 32px);
+    padding-block: 24px 40px;
+  }
+
+  .workspace-home-hero {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .workspace-home h1 {
+    font-size: 24px;
+  }
+
+  .workspace-home-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .workspace-home-metric {
+    padding: 14px;
+  }
+
+  .workspace-home-metric strong {
+    font-size: 24px;
+  }
+
+  .workspace-home-metric > svg {
+    display: none;
+  }
+
+  .workspace-home-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .workspace-home-panel {
+    padding: 18px;
+  }
+
+  .document-reader:not(.document-reader-spreadsheet):not(.document-reader-univer) {
+    padding: 28px 20px 120px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .platform-container *,
+  .dialog-backdrop,
+  .modal-backdrop {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* The outline is a reading aid, so keep it floating over the reader instead
+   of reserving a full third column for headings. The rail stays quiet until
+   the user hovers or focuses it, while the reader keeps its own scroll. */
+.outline-panel {
+  position: absolute;
+  z-index: 12;
+  inset: auto 18px auto auto;
+  top: 76px;
+  width: 24px;
+  max-height: calc(100% - 100px);
+  overflow: visible;
+  padding: 0;
+  border-left: 0;
+  background: transparent;
+  color: var(--muted);
+}
+
+.workspace.is-editing .outline-panel {
+  top: 116px;
+}
+
+.outline-rail {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: 6px;
+  justify-items: end;
+  padding: 6px 0;
+  pointer-events: none;
+}
+
+.outline-popover {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  width: 240px;
+  max-height: min(460px, calc(100dvh - 120px));
+  overflow-y: auto;
+  padding: 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(8px);
+  transition: opacity 140ms ease, transform 140ms ease;
+}
+
+.outline-panel:hover .outline-popover,
+.outline-panel:focus-within .outline-popover {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+.outline-panel:hover .outline-rail,
+.outline-panel:focus-within .outline-rail {
+  visibility: hidden;
+}
+
+@media (min-width: 1181px) {
+  .workspace.has-outline,
+  .workspace.has-outline.is-sidebar-collapsed {
+    grid-template-columns: 268px minmax(0, 1fr);
+  }
+
+  .workspace.has-outline.is-sidebar-collapsed {
+    grid-template-columns: 0 minmax(0, 1fr);
+  }
+
+  .workspace.has-outline .reader-area {
+    padding-right: 54px;
+  }
+
+  .workspace.has-outline .reader-meta {
+    width: calc(100% + 54px);
+  }
+}

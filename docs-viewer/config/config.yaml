@@ -1,0 +1,202 @@
+server:
+    run-mode: release
+    http-port: :9000
+    read-timeout: 60
+    write-timeout: 60
+    private-http-listen: ""
+    webgui-port: ""
+    share-port: ""
+    ext-api-url: ""
+    cors-allowed-origins: []
+    trusted-proxies: []
+    share-base-url: ""
+    mcp-sse-ping-interval: 30
+    mcp-disable-localhost-protection: false
+    custom-response-headers: {}
+app:
+    default-page-size: 10
+    max-page-size: 100
+    default-context-timeout: 60
+    temp-path: storage/temp
+    is-return-sussess: false
+    soft-delete-retention-time: 90d
+    sync-log-retention-time: 30d
+    history-keep-versions: 100
+    history-save-delay: 10s
+    upload-session-timeout: 1d
+    file-chunk-size: 512KB
+    download-session-timeout: 1h
+    worker-pool-max-workers: 100
+    worker-pool-queue-size: 1000
+    write-queue-capacity: 1000
+    write-queue-timeout: 30s
+    write-queue-idle-time: 10m
+    ws-read-max-payload-size: 128MB
+    ws-write-max-payload-size: 128MB
+    ws-parallel-enabled: true
+    ws-parallel-golimit: 5
+    ws-check-utf8-enabled: true
+    ws-compression-enabled: true
+    ws-compression-level: 1
+    ws-compression-threshold: 512
+    ws-write-timeout: 10
+    pull-source: auto
+    pull-release-channel: stable
+    short-link:
+        base-url: https://sink.cool
+        api-key: SinkCool
+        password: ""
+        cloaking: false
+    fts-bleve-enabled: true
+    fts-bleve-store-raw: false
+    sync-down-chunk-num: 200
+    sync-up-chunk-num: 100
+    pipeline-window-up: 8
+    pipeline-window-down: 4
+security:
+    auth-token-key: eAn6rhWLUjKPUMQpxesR2REA6qb0xWTc
+    token-expiry: 365d
+    share-token-key: fns
+    share-token-expiry: 30d
+    webgui-login-token-expiry: 7d
+    webgui-login-token-bind-ip: true
+database:
+    type: sqlite
+    path: storage/database/db.sqlite3
+    username: ""
+    password: ""
+    host: ""
+    port: 0
+    name: ""
+    ssl-mode: ""
+    table-prefix: ""
+    schema: ""
+    auto-migrate: true
+    charset: ""
+    parse-time: true
+    max-idle-conns: 10
+    max-open-conns: 100
+    conn-max-lifetime: 30m
+    conn-max-idle-time: 10m
+    enable-write-queue: true
+    max-write-concurrency: 0
+user-database:
+    type: sqlite
+    path: storage/database/db.sqlite3
+    username: ""
+    password: ""
+    host: ""
+    port: 0
+    name: ""
+    ssl-mode: ""
+    table-prefix: ""
+    schema: public
+    auto-migrate: true
+    charset: ""
+    parse-time: true
+    max-idle-conns: 10
+    max-open-conns: 100
+    conn-max-lifetime: 30m
+    conn-max-idle-time: 10m
+    enable-write-queue: true
+    max-write-concurrency: 0
+log:
+    level: warn
+    file: storage/logs/log.log
+    production: true
+user:
+    register-is-enable: true
+    admin-uid: 1
+tracer:
+    enabled: true
+    header: X-Trace-ID
+short-link:
+    base-url: https://sink.cool
+    api-key: SinkCool
+    password: ""
+    cloaking: false
+storage:
+    local-fs:
+        is-enable: false
+        httpfs-is-enable: true
+        save-path: storage/uploads
+    aliyun-oss:
+        is-enable: true
+    aws-s3:
+        is-enable: true
+    cloudflare-r2:
+        is-enable: true
+    minio:
+        is-enable: true
+    webdav:
+        is-enable: true
+git:
+    name: FNS Service
+    email: fns@email.com
+webgui:
+    font-set: local
+cloudflare:
+    enabled: false
+    token: ""
+    log-enabled: false
+oauth:
+    enabled: false
+    resource: ""
+    authorization-servers: []
+    jwks-url: ""
+    issuer: ""
+    audience: []
+    scopes-supported:
+        - notes:read
+        - notes:write
+        - files:read
+        - files:write
+        - vaults:read
+    required-scopes:
+        - notes:read
+        - files:read
+        - vaults:read
+    resource-name: ""
+    allow-static-fns-token: true
+    default-client: ChatGPT
+    default-client-name: ChatGPT
+    default-client-version: ""
+    default-vault-name: ""
+    subject-mapping:
+        mode: email_or_fixed_uid
+        claim: email
+        fixed-uid: 0
+    default-fns-scope: ""
+    stytch:
+        enabled: false
+        kind: consumer
+        domain: ""
+        project-id: ""
+        secret: ""
+        user-id: ""
+        user-id-prefix: 'fns:'
+        organization-id: ""
+        member-id: ""
+oidc:
+    enabled: false
+    display-name: Login with OIDC
+    issuer: ""
+    client-id: ""
+    client-secret: ""
+    redirect-url: ""
+    callback-path: /api/user/auth/oidc/callback
+    scopes:
+        - openid
+        - profile
+        - email
+    auto-register: false
+    user-mapping:
+        subject-claim: sub
+        email-claim: email
+        username-claim: preferred_username
+        display-name-claim: name
+    providers: []
+attachment-static:
+    is-enable: false
+    allowed-vaults: {}
+    allowed-types: []

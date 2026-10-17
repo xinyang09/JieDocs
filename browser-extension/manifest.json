@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Fast Note Sync 剪藏",
+  "version": "0.1.0",
+  "description": "将网页正文、选中文本和链接一键保存到 Fast Note Sync。",
+  "permissions": ["storage", "activeTab", "contextMenus", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_title": "剪藏到 Fast Note Sync",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "commands": {
+    "clip-page": {
+      "suggested_key": { "default": "Alt+Shift+S" },
+      "description": "剪藏当前网页"
+    }
+  }
+}

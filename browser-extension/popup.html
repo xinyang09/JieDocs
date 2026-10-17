@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>剪藏到 Fast Note Sync</title><link rel="stylesheet" href="popup.css"></head>
+<body>
+  <main>
+    <header><div class="logo">FN</div><div><h1>剪藏到 Fast Note Sync</h1><p id="status">正在读取当前页面…</p></div></header>
+    <label>笔记标题<input id="title" type="text" placeholder="页面标题"></label>
+    <label>保存路径<input id="path" type="text" placeholder="Clips/页面标题.md"></label>
+    <label>Vault<select id="vault"><option value="">加载中…</option></select></label>
+    <label>正文<textarea id="content" rows="10" placeholder="网页正文"></textarea></label>
+    <div class="actions"><button id="options" class="secondary">设置</button><button id="save">保存剪藏</button></div>
+    <p id="error" class="error" role="alert"></p>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>

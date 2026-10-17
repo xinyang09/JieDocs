@@ -1,0 +1,74 @@
+.xdb-page {
+  container-type: inline-size;
+  position: relative;
+  min-width: 0;
+  color: var(--text);
+  font-size: 13px;
+}
+.xdb-page button, .xdb-page input {
+  font: inherit;
+  color: inherit;
+}
+.xdb-page button {
+  cursor: pointer;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 10px;
+}
+.xdb-page button:hover:not(:disabled) { background: var(--surface-hover); }
+.xdb-page button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.xdb-page button:disabled { cursor: not-allowed; opacity: .5; }
+.xdb-page-toolbar, .xdb-toolbar, .xdb-note-reader header { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+.xdb-page-toolbar { padding: 12px 0; border-bottom: 1px solid var(--border); }
+.xdb-page-toolbar span { color: var(--muted); font-size: 12px; margin-left: auto; }
+.xdb-tabs { min-width: 0; height: 100%; display: flex; flex-direction: column; }
+.xdb-tabs nav { display: flex; flex-wrap: wrap; gap: 4px; padding: 8px 0; border-bottom: 1px solid var(--border); }
+.xdb-tabs nav button { border-color: transparent; background: transparent; }
+.xdb-tabs nav button[aria-pressed="true"] { color: var(--accent); border-color: var(--border); background: var(--surface-raised); font-weight: 600; }
+.xdb-tab-content { flex: 1; min-height: 0; min-width: 0; overflow: auto; }
+.xdb-layout { display: grid; grid-template-columns: repeat(24, minmax(0, 1fr)); grid-auto-rows: 24px; gap: 6px; padding: 12px 0; }
+.xdb-widget { display: flex; flex-direction: column; min-width: 0; min-height: 0; border: 1px solid var(--border); border-radius: 8px; background: var(--surface-raised); overflow: hidden; }
+.xdb-widget h3 { font-size: 12px; font-weight: 500; color: var(--muted); margin: 0; padding: 8px 10px 4px; overflow-wrap: anywhere; }
+.xdb-widget-body { flex: 1; min-width: 0; min-height: 0; overflow: auto; padding: 6px; }
+.xdb-widget-time-banner h3, .xdb-widget-button h3 { display: none; }
+.xdb-widget-time-banner { background: var(--surface-muted); }
+.xdb-metric { display: flex; justify-content: center; align-items: flex-start; flex-direction: column; height: 100%; gap: 8px; padding: 0 4px; }
+.xdb-metric strong { font-size: clamp(20px, 3cqw, 32px); font-variant-numeric: tabular-nums; line-height: 1.1; }
+.xdb-metric small, .xdb-footnote { color: var(--muted); font-size: 11px; }
+.xdb-clock { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; min-height: 120px; height: 100%; padding: 12px; }
+.xdb-clock strong { font-size: clamp(28px, 6cqw, 68px); font-weight: 400; font-variant-numeric: tabular-nums; letter-spacing: -2px; }
+.xdb-clock span { color: var(--muted); }
+.xdb-clock progress { width: min(280px, 80%); height: 4px; accent-color: var(--accent); }
+.xdb-empty { color: var(--muted); padding: 14px 10px; margin: 0; overflow-wrap: anywhere; font-size: 12px; }
+.xdb-toolbar { padding: 8px; font-size: 12px; }
+.xdb-table-scroll { overflow: auto; max-height: 430px; }
+.xdb-page table { width: 100%; border-collapse: collapse; margin: 0; font-size: 12px; }
+.xdb-page th { position: sticky; top: 0; background: var(--surface-raised); text-align: left; color: var(--muted); white-space: nowrap; }
+.xdb-page th, .xdb-page td { padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.xdb-page td { min-width: 90px; max-width: 380px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.xdb-page .xdb-note-link { color: var(--accent); padding: 0; text-align: left; border: 0; background: transparent; white-space: pre-wrap; overflow-wrap: anywhere; }
+.xdb-calendar { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); min-width: 400px; }
+.xdb-calendar-day { grid-template-columns: 1fr; min-width: 0; }
+.xdb-calendar-cell { min-height: 80px; border: 1px solid var(--border); padding: 4px; min-width: 0; }
+.xdb-calendar-cell time { font-variant-numeric: tabular-nums; display: block; margin-bottom: 4px; }
+.xdb-calendar-cell time small { color: var(--muted); font-size: 10px; }
+.xdb-calendar-cell button { display: block; width: 100%; text-align: left; padding: 4px; font-size: 11px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.xdb-calendar-cell.is-today { box-shadow: inset 0 2px var(--accent); }
+.xdb-date-note { padding: 10px; line-height: 1.6; }
+.xdb-date-note ul { padding-left: 20px; }
+.xdb-page input { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 6px; min-width: 0; }
+.xdb-action { height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; }
+.xdb-action small { font-size: 10px; color: var(--muted); }
+.xdb-binding { display: flex; flex-direction: column; gap: 10px; padding: 8px; }
+.xdb-binding label { display: flex; flex-direction: column; gap: 4px; }
+.xdb-note-reader { position: fixed; z-index: 1000; inset: 8vh 8vw; padding: 20px; overflow: auto; background: var(--surface); border: 1px solid var(--border-strong); border-radius: 12px; box-shadow: var(--shadow-sm); }
+.xdb-note-reader header { position: sticky; top: -20px; background: var(--surface); padding: 12px 0; justify-content: space-between; border-bottom: 1px solid var(--border); }
+.xdb-note-reader header strong { overflow-wrap: anywhere; }
+@container (max-width: 760px) {
+  .xdb-layout { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: auto; }
+  .xdb-widget { grid-column: 1 / -1 !important; grid-row: auto !important; min-height: 100px; max-height: 650px; }
+  .xdb-widget-metric, .xdb-widget-button { grid-column: auto !important; }
+  .xdb-widget-body { max-height: 600px; }
+  .xdb-clock strong { font-size: 40px; }
+}
